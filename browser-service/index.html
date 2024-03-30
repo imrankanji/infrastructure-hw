@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Broadcasts Client</title>
+</head>
+
+<body>
+  <script>
+    const socket = new WebSocket('ws://localhost:3000/broadcasts');
+
+    socket.addEventListener('message', (event) => {
+      document.write(event.data)
+      document.write("<br>")
+    });
+  </script>
+</body>
+</html>
