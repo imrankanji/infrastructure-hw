@@ -22,3 +22,17 @@ For this assignment, you're going to create the infrastructure for an applicatio
 - Fork this repository on GitHub. Develop a solution on your fork. Extra points for good git hygiene.
 - Include specific instructions in your README about pre-requisites and setup steps. Another engineer should be able to go from zero to running your solution on their local machine.
 - Either send us the link to your repository (if you make it public) or email us a zipped-up folder.
+
+## Implementation
+
+Build broadcast and browser service images:
+
+`make build-broadcast`
+
+`make build-browser`
+
+Run services and Redis for message broker:
+
+`make up`
+
+Open `browser-service/index.html` in browser to view message broadcasts.
