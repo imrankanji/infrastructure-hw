@@ -3,14 +3,16 @@
 <head>
   <title>Broadcasts Client</title>
 </head>
-
 <body>
+  <div id="container"></div>
   <script>
     const socket = new WebSocket('ws://localhost:3000/broadcasts');
+    const container = document.getElementById('container')
 
     socket.addEventListener('message', (event) => {
-      document.write(event.data)
-      document.write("<br>")
+      const content = document.createElement('div');
+      content.innerText = event.data
+      container.appendChild(content);
     });
   </script>
 </body>
