@@ -31,7 +31,7 @@ Build broadcast and browser service images:
 
 `make build-browser`
 
-Run services and Redis for message broker:
+Run services, NGINX, and Redis:
 
 `make up`
 
