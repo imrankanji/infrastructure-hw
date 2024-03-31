@@ -35,4 +35,4 @@ Run services and Redis for message broker:
 
 `make up`
 
-Open `browser-service/index.html` in browser to view message broadcasts.
+Open browser and navigate to [localhost:8000](http://localhost:8000)
