@@ -24,6 +24,17 @@ For this assignment, you're going to create the infrastructure for an applicatio
 - Either send us the link to your repository (if you make it public) or email us a zipped-up folder.
 
 ## Implementation
+### Minikube
+
+Ensure Minikube cluster is running with `minikube start` and Docker Hub credentials are cached in `~/.docker/config.json` via `docker login`
+
+To deploy the Kubernetes manifests, port-forward, and view the output in the browser, run:
+ `make deploy-k8s`
+
+To kill the port forward running in the background: `make stop-portforward`
+
+
+### Local development with Docker Compose
 
 Build broadcast and browser service images:
 
@@ -36,3 +47,6 @@ Run services, NGINX, and Redis:
 `make up`
 
 Open browser and navigate to [localhost:8000](http://localhost:8000)
+
+To gracefully shutdown services run `make down`
+

@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: broadcast-service
+  labels:
+    app: broadcast-service
+spec:
+  selector:
+    matchLabels:
+      app: broadcast-service
+  template:
+    metadata:
+      labels:
+        app: broadcast-service
+    spec:
+      containers:
+      - name: broadcast-service
+        image: ikanji/broadcast-service:latest
+        resources:
+          limits:
+            cpu: "1"
+            memory: 1Gi
+          requests:
+            cpu: 100m
+            memory: 100Mi
