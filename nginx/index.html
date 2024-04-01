@@ -6,7 +6,7 @@
 <body>
   <div id="container"></div>
   <script>
-    const socket = new WebSocket('ws://localhost:3000/broadcasts');
+    const socket = new WebSocket('ws://localhost:3000/');
     const container = document.getElementById('container')
 
     socket.addEventListener('message', (event) => {
