@@ -2,12 +2,12 @@ version: "3.8"
 
 services:
   broadcast-service:
-    image: "broadcast-service:latest"
+    image: "ikanji/broadcast-service:latest"
     depends_on:
       - redis
     
   browser-service:
-    image: "browser-service:latest"
+    image: "ikanji/browser-service:latest"
     ports:
       - "3000:3000"
     depends_on:
