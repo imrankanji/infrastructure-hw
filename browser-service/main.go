@@ -40,7 +40,7 @@ func checkRedis() {
 }
 
 func getBroadcasts(w http.ResponseWriter, r *http.Request) {
-	fmt.Printf("got /broadcasts request\n")
+	fmt.Printf("got / request\n")
 	conn, err := upgrader.Upgrade(w, r, nil)
 	if err != nil {
 		log.Println(err)
@@ -64,7 +64,7 @@ func main() {
 
 	checkRedis()
 
-	http.HandleFunc("/broadcasts", getBroadcasts)
+	http.HandleFunc("/", getBroadcasts)
 	log.Fatal(http.ListenAndServe(":3000", nil))
 
 }
