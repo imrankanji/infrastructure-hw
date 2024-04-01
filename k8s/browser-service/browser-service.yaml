@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: browser-service
+  labels:
+    app: browser-service
+spec:
+  selector:
+    matchLabels:
+      app: browser-service
+  template:
+    metadata:
+      labels:
+        app: browser-service
+    spec:
+      containers:
+      - name: browser-service
+        image: ikanji/browser-service:latest
+        resources:
+          limits:
+            cpu: "1"
+            memory: 1Gi
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: browser-service
+spec:
+  type: NodePort
+  selector:
+    app: browser-service
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000
+      nodePort: 32323
