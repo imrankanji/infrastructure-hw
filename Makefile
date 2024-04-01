@@ -1,8 +1,8 @@
 build-broadcast:
-	docker build --no-cache -t ikanji/broadcast-service:latest ./broadcast-service
+	docker build --no-cache -t ikanji/broadcast-service:tiny ./broadcast-service
 
 build-browser:
-	docker build --no-cache -t ikanji/browser-service:latest ./browser-service
+	docker build --no-cache -t ikanji/browser-service:tiny ./browser-service
 
 build-redis:
 	docker build -t redis:latest ./redis
@@ -19,8 +19,10 @@ down:
 deploy-k8s:
 	kubectl apply -f k8s/redis/redis.yaml
 	kubectl wait --for=condition=available deployment/redis
+	sleep 15
 	kubectl apply -f k8s/broadcast-service/broadcast-service.yaml
 	kubectl wait --for=condition=available deployment/broadcast-service
+	sleep 15
 	kubectl apply -f k8s/browser-service/browser-service.yaml
 	kubectl wait --for=condition=available deployment/browser-service
 	kubectl port-forward service/browser-service 32323:3000 > /dev/null 2>&1 &

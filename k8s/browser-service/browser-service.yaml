@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: browser-service
-        image: ikanji/browser-service:latest
+        image: ikanji/browser-service:tiny
         resources:
           limits:
             cpu: "1"
